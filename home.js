@@ -13,7 +13,7 @@ function personInfo() {
           console.log('<br>');
       });
     })
-  }
+}
   
-  window.onload = personInfo;
+window.onload = personInfo;
   
