@@ -1,0 +1,19 @@
+#nav {
+    background-color: rgb(76, 76, 171);
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
+
+#nav li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
+
+#nav li:hover {
+    background-color: darkcyan;
+    color: white;
+}
