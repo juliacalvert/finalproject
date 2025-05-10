@@ -17,3 +17,16 @@
     background-color: darkcyan;
     color: white;
 }
+
+#carousel {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+}
+#carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
