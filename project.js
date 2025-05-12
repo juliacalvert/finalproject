@@ -30,4 +30,60 @@ function getImages() {
         })
 }
 
-window.onload = getImages;
+function officeChart() {
+    const url = "https://api.fbi.gov/wanted/v1/list";
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const officeCounts = {};
+
+          data.items.forEach(item => {
+            if (item.field_offices) {
+              item.field_offices.forEach(office => {
+                officeCounts[office] = (officeCounts[office] || 0) + 1;
+              });
+            }
+          });
+
+          const labels = Object.keys(officeCounts);
+          const counts = Object.values(officeCounts);
+
+          const ctx = document.getElementById('wantedChart').getContext('2d');
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Wanted Individuals per Field Office',
+                data: counts,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                x: {
+                  title: {
+                    display: true,
+                    text: 'Field Office'
+                  }
+                },
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: 'Number of Individuals'
+                  }
+                }
+              }
+            }
+          });
+        });
+}
+
+window.onload = function () {
+  officeChart();
+  getImages();
+};

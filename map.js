@@ -25,14 +25,14 @@ const stateToOffice = {
 
 
 function createMap() {
-    const map = L.map('map').setView([39.8283, -98.5795], 4); // Centered on the US
+    const map = L.map('map').setView([39.8283, -98.5795], 4);
+    const url = "https://api.fbi.gov/wanted/v1/list";
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    const url = "https://api.fbi.gov/wanted/v1/list";
     fetch(url)
         .then(response => response.json())
         .then(data => {
