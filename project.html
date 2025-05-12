@@ -1,48 +1,11 @@
-<!--<html>
-    <head>
-        <title>Project Page</title>
-        <link rel="stylesheet" href="external.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
-        <script src="home.js" defer></script>
-    </head>
-
-    <body>
-        <h1>This is the project specific page</h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="project.html">Project</a></li>
-            </ul>
-        </nav>
-        <h1>Criminals</h1>
-        <div id="carousel"></div>
-    </body>
-</html>-->
-
-
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>FBI Most Wanted Slider</title>
-    <style>
-        #carousel {
-            width: 1200px;
-            height: 1000px;
-            position: relative;
-            overflow: hidden;
-            margin: 40px auto;
-            border: 2px solid #ccc;
-        }
-        #carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
+    <script src="project.js" defer></script>
     <link rel="stylesheet" href="external.css">
 </head>
+
 <body>
     <h1 style="text-align:center;">FBI Most Wanted Carousel</h1>
     <nav id="nav">
@@ -55,42 +18,5 @@
     </nav>
     <div id="carousel"></div>
     <div id="criminal-names"></div>
-
-    <script>
-        
-        function getImages() {
-            const url = "https://api.fbi.gov/wanted/v1/list";
-
-            fetch(url)
-                .then((result) => result.json())
-                .then(data => {
-                    const carousel = document.getElementById('carousel');
-                    const namesContainer = document.getElementById('criminal-names');
-                    const criminals = data.items.slice(0, 10);
-
-                    criminals.forEach((criminal) => {
-                        if (criminal.images && criminal.images.length > 0) {
-                            const img = document.createElement('img');
-                            img.src = criminal.images[0].original;
-                            img.alt = criminal.title || "Most Wanted Criminal";
-                            carousel.appendChild(img);
-
-                            const name = document.createElement('div');
-                            name.textContent = criminal.title || "Unknown Name";
-                            namesContainer.appendChild(name);
-                        }
-                    });
-                    setTimeout(() => {
-                        simpleslider.getSlider({
-                            container: carousel,
-                            delay: 3,
-                            duration: 0.5
-                        });
-                    }, 300);
-                })
-        }
-
-        window.onload = getImages;
-    </script>
 </body>
 </html>
