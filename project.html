@@ -27,8 +27,8 @@
     <title>FBI Most Wanted Slider</title>
     <style>
         #carousel {
-            width: 600px;
-            height: 400px;
+            width: 1200px;
+            height: 1000px;
             position: relative;
             overflow: hidden;
             margin: 40px auto;
@@ -80,17 +80,14 @@
                             namesContainer.appendChild(name);
                         }
                     });
-
-                    // Important: wait for images to be in the DOM before initializing slider
                     setTimeout(() => {
                         simpleslider.getSlider({
                             container: carousel,
                             delay: 3,
                             duration: 0.5
                         });
-                    }, 300); // slightly longer delay to ensure rendering
+                    }, 300);
                 })
-                .catch(error => console.error('Error fetching FBI data:', error));
         }
 
         window.onload = getImages;
