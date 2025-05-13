@@ -230,3 +230,15 @@ body {
     max-width: 60%;
     display: block;
 }
+
+#criminal-names {
+    width: 50%;
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    align-items: center;
+    background-color: lightcyan;
+    margin: 20px auto;
+    text-align: left;
+}
