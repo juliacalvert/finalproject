@@ -14,15 +14,25 @@ const fieldOfficeLocations = {
     "tampa": [27.9517, -82.4588],
     "houston": [29.7601, -95.3701],
     "stlouis": [38.6270, -90.1994],
-    "philadelphia": [39.9526, -75.1652]
+    "philadelphia": [39.9526, -75.1652],
+    "neworleans": [29.9509, -90.0758]
 };
 
 const stateToOffice = {
     "california": "losangeles",
-    "illinois": "chicago"
+    "illinois": "chicago",
+    "louisiana": "neworleans",
+    "arizona": "phoenix",
+    "new york": "newyork",
+    "florida": "miami",
+    "texas": "dallas",
+    "georgia": "atlanta",
+    "massachusetts": "boston",
+    "washington": "seattle",
+    "indiana": "indianapolis",
+    "missouri": "stlouis",
+    "pennsylvania": "philadelphia"
 };
-
-
 
 function createMap() {
     const map = L.map('map').setView([39.8283, -98.5795], 4);
@@ -47,14 +57,17 @@ function createMap() {
                 } 
 
                 else if (criminal.details) {
-                    const stateMatch = criminal.details.match(/\b(?:California|Illinois)\b/gi);
+                    const stateMatch = criminal.details.match(/\b(?:California|Illinois|Louisiana|Arizona|New York|Florida|Texas|Georgia|Massachusetts|Washington|Indiana|Missouri|Pennsylvania)\b/gi);
                     
                     if (stateMatch) {
-                        const state = stateMatch[0].toLowerCase();
+                        console.log("Matched state:", stateMatch[0], "Title:", criminal.title);
+                        const state = stateMatch[0].toLowerCase().trim();
                         const office = stateToOffice[state];
                         coords = fieldOfficeLocations[office];
                     }
                 }
+                //console.log(criminal.title, criminal.field_offices, coords);
+                console.log(`Criminal: ${criminal.title}, Office: ${criminal.field_offices}, Coords:`, coords);
 
                 if (coords) {
                     L.marker(coords)
