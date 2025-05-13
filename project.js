@@ -40,9 +40,9 @@ function officeChart() {
         .then(data => {
             const genderCounts = { Male: 0, Female: 0, Unknown: 0 };
 
-            const firstTenCriminals = data.items.slice(0, 10);
+            const firstTen = data.items.slice(0, 10);
 
-            firstTenCriminals.forEach(item => {
+            firstTen.forEach(item => {
                 const gender = item.sex;
                 if (gender === "Male" || gender === "Female") {
                     genderCounts[gender] += 1;
