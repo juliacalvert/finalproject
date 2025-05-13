@@ -66,8 +66,7 @@ function createMap() {
                         coords = fieldOfficeLocations[office];
                     }
                 }
-                //console.log(criminal.title, criminal.field_offices, coords);
-                console.log(`Criminal: ${criminal.title}, Office: ${criminal.field_offices}, Coords:`, coords);
+                console.log(criminal.title, criminal.field_offices, coords);
 
                 if (coords) {
                     L.marker(coords)
@@ -77,6 +76,7 @@ function createMap() {
                             ${criminal.description || "No description available"}<br>
                             <a href="${criminal.url}" target="_blank">More Info</a>
                         `);
+                    
                 }
             });
         })
