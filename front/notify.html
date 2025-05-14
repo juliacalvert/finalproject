@@ -1,11 +1,26 @@
 <html>
     <head>
     <title>Suspect Tips</title>
+    <link rel="stylesheet" href="external.css">
     <script src="notify.js" defer></script>
     </head>
 
     <body>
+        
         <h1>Submit a Suspect Tip</h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Roulette</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="notify.html">Notify Us</a></li>
+            </ul>
+        </nav>
+        <div class="info-box">
+            <h2>Please fill out this form if you have any information regarding the criminals on the site.</h2>
+            <h2>You can also search by name to see if it has already been submitted.</h2>
+        </div>
 
         <form onsubmit="createSuspectTip(); return false;">
             <label for="suspect_name">Suspect Name:</label>
