@@ -72,8 +72,8 @@ function createMap() {
                     L.marker(coords)
                         .addTo(map)
                         .bindPopup(`
-                            <strong>${criminal.title || "Unknown Name"}</strong><br>
-                            ${criminal.description || "No description available"}<br>
+                            <strong>${criminal.title}</strong><br>
+                            ${criminal.description }<br>
                             <a href="${criminal.url}" target="_blank">More Info</a>
                         `);
                     
