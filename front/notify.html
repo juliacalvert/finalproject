@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <title>Suspect Tips</title>
+    <script src="notify.js" defer></script>
+    </head>
+
+    <body>
+        <h1>Submit a Suspect Tip</h1>
+
+        <form onsubmit="createSuspectTip(); return false;">
+            <label for="suspect_name">Suspect Name:</label>
+            <input type="text" id="suspect_name" required>
+            <br>
+            <label for="tip">Tip:</label>
+            <input type="text" id="tip" required>
+            <br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+            <br><br>
+            <input type="submit" value="Submit Tip">
+        </form>
+        <br>
+        <label for="search">Search by Suspect Name:</label>
+        <input type="text" id="search" placeholder="Type Name" />
+        <br>
+        <br>
+        <div id="suspect-container"></div>
+    </body>
+</html>
