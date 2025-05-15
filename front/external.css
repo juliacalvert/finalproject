@@ -18,8 +18,15 @@ body {
 }
 
 #nav li:hover {
-    background-color: darkcyan;
-    color: white;
+    background-color: rgb(2, 198, 198);
+}
+
+#nav li a {
+  color: white;
+}
+
+#nav li a:focus {
+  color: black;
 }
 
 #carousel {
